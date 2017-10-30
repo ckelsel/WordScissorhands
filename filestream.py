@@ -56,18 +56,22 @@ class filestream:
         self.stream_index = 0
         self.stream_length = len(stream)
 
-    def get_words(self):
-        pdb.set_trace()
+    def get_words(self, strip = False):
         stream = self.fd.read()
         stream = stream.lower()
         self.init_stream(stream)
 
         word = self.get_one_word(stream)
         while word != None:
-            self.list.append(word)
+            if (strip):
+                if len(word) != 1:
+                    self.list.append(word)
+            else:
+                self.list.append(word)
             word = self.get_one_word(stream)
         
         return self.list
+
         
 
 
