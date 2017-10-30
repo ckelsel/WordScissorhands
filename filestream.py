@@ -65,7 +65,8 @@ class filestream:
         while word != None:
             if (strip):
                 if len(word) != 1:
-                    self.list.append(word)
+                    if self.list.count(word) == 0:
+                        self.list.append(word)
             else:
                 self.list.append(word)
             word = self.get_one_word(stream)

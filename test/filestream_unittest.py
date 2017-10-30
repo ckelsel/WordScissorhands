@@ -97,7 +97,6 @@ class FileStreamUnittest(unittest.TestCase):
     def test_5(self):
         filename = self.path + "/test5.txt"
         stream = filestream(filename)
-        #pdb.set_trace()
         result = stream.get_words()
         self.assertEqual(len(result), 9)
         self.assertEqual(result[0], "monica")
@@ -109,6 +108,13 @@ class FileStreamUnittest(unittest.TestCase):
         self.assertEqual(result[6], "to")
         self.assertEqual(result[7], "all")
         self.assertEqual(result[8], "okay")
+
+    def test_6(self):
+        filename = self.path + "/test6.txt"
+        stream = filestream(filename)
+        result = stream.get_words(True)
+        self.assertEqual(len(result), 1)
+        self.assertEqual(result[0], "test")
 
 if __name__ == '__main__':
     unittest.main()
